@@ -57,7 +57,9 @@ export default class Todo extends React.Component {
           </li>)}
         </ul>
       </div>
-      <footer>created by akic</footer>
+      <footer>
+        <div>created by akic. <a href="https://github.com/aki85/todo">github</a></div>
+      </footer>
     </div>)
   }
 }
