@@ -1,7 +1,7 @@
 # Description
 todo list  
   
-[sample](https://aki85.github.io/todo/index)
+[sample](https://aki85.github.io/todo/)
 
 # ready
 npm install
