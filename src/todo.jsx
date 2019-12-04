@@ -17,6 +17,13 @@ export default class Todo extends React.Component {
     })
   }
 
+  onListInput = (index, e) => {
+    if (30 < e.target.value.length) return;
+    const { todos } = this.state
+    todos[index] = e.target.value
+    this.setState({ todos })
+  }
+
   addTodo = (e) => {
     e.preventDefault()
     const { todos, name } = this.state
@@ -28,7 +35,7 @@ export default class Todo extends React.Component {
   }
 
   removeTodo = (index) => {
-    const { todos, name } = this.state
+    const { todos } = this.state
     this.setState({
       todos: [...todos.slice(0, index), ...todos.slice(index + 1)]
     })
@@ -52,7 +59,11 @@ export default class Todo extends React.Component {
         </Form>
         <ul>
           {todos.map((todo, index) => <li key={index}>
-            <span>{todo}</span>
+            <FormControl
+              className="list-form"
+              value={this.state.todos[index]}
+              onInput={(e) => this.onListInput(index, e)}
+            />
             <a tabIndex="-1" onClick={() => { this.removeTodo(index) }}><i className="fa fa-times"></i></a>
           </li>)}
         </ul>

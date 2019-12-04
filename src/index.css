@@ -44,7 +44,7 @@ header {
   border-bottom: solid #333 1px;
 }
 
-.main ul li span{
+.main ul li input{
   display: inline-block;
   width: 95%;
   overflow: hidden;
@@ -53,7 +53,7 @@ header {
 }
 
 @media screen and (max-width: 768px) {
-  .main ul li span {
+  .main ul li input {
     width: 90%;
   }
 }
@@ -94,6 +94,15 @@ footer a:hover {
 input.form-control:focus {
   box-shadow: 0 0 0 0.2rem rgba(108,117,125,.5);
   border-color: rgba(108,117,125,.5);
+}
+
+.list-form {
+  height: unset;
+  border: none;
+  padding: 0;
+}
+input.form-control:focus {
+  box-shadow: none;
 }
 
 .btn-outline-secondary {
