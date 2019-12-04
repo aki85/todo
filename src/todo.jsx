@@ -58,14 +58,17 @@ export default class Todo extends React.Component {
           </InputGroup>
         </Form>
         <ul>
-          {todos.map((todo, index) => <li key={index}>
-            <FormControl
-              className="list-form"
-              value={this.state.todos[index]}
-              onInput={(e) => this.onListInput(index, e)}
-            />
-            <a tabIndex="-1" onClick={() => { this.removeTodo(index) }}><i className="fa fa-times"></i></a>
-          </li>)}
+          {todos.map((todo, index) => {
+            const reversedIndex = todos.length - index - 1
+            return (<li key={reversedIndex}>
+              <FormControl
+                className="list-form"
+                value={this.state.todos[reversedIndex]}
+                onInput={(e) => this.onListInput(reversedIndex, e)}
+              />
+              <a tabIndex="-1" onClick={() => { this.removeTodo(reversedIndex) }}><i className="fa fa-times"></i></a>
+            </li>)
+          })}
         </ul>
       </div>
       <footer>
