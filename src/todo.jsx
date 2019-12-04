@@ -42,9 +42,14 @@ export default class Todo extends React.Component {
   }
 
   render() {
+    const { isAdmin } = this.props
     const { todos } = this.state
+    let headerText = 'Todo List'
+    if (isAdmin) {
+      headerText = 'Todo List for Admin'
+    }
     return (<div className="todo">
-      <header>Todo List</header>
+      <header>{headerText}</header>
       <div className="main">
         <Form onSubmit={this.addTodo.bind(this)}>
           <InputGroup className="mb-3">
@@ -66,7 +71,7 @@ export default class Todo extends React.Component {
                 value={this.state.todos[reversedIndex]}
                 onInput={(e) => this.onListInput(reversedIndex, e)}
               />
-              <a tabIndex="-1" onClick={() => { this.removeTodo(reversedIndex) }}><i className="fa fa-times"></i></a>
+              {isAdmin && <a tabIndex="-1" onClick={() => { this.removeTodo(reversedIndex) }}><i className="fa fa-times"></i></a>}
             </li>)
           })}
         </ul>
