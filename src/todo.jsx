@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import { Form, Button, InputGroup, FormControl } from 'react-bootstrap'
 export default class Todo extends React.Component {
 
@@ -49,7 +50,10 @@ export default class Todo extends React.Component {
       headerText = 'Todo List for Admin'
     }
     return (<div className="todo">
-      <header>{headerText}</header>
+      <header>
+        {headerText}
+        {isAdmin ? <Link to="/">to user</Link> : <Link to="/admin">to admin</Link>}
+      </header>
       <div className="main">
         <Form onSubmit={this.addTodo.bind(this)}>
           <InputGroup className="mb-3">
