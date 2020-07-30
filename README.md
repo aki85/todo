@@ -1,5 +1,5 @@
 # Description
-todo list  
+todo list by react
   
 参考元  
 https://webkikaku.co.jp/blog/javascript/react-start/
